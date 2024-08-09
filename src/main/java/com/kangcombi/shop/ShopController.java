@@ -4,8 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.time.LocalDateTime;
-
 @Controller
 public class ShopController {
     @GetMapping("/")
@@ -25,9 +23,4 @@ public class ShopController {
         return "This is My Page";
     }
 
-    @GetMapping("/date")
-    @ResponseBody
-    String datepage() {
-        return LocalDateTime.now().toString();
-    }
 }
