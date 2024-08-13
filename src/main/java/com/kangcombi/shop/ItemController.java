@@ -16,10 +16,7 @@ public class ItemController {
     @GetMapping("/list")
     String listpage(Model model) {
         List<Item> result = itemRepository.findAll();
-        System.out.println(result.get(0).price);
-        System.out.println(result.get(0).title);
-
-        model.addAttribute("name", "kang");
+        model.addAttribute("items", result);
         return "list.html";
     }
 
