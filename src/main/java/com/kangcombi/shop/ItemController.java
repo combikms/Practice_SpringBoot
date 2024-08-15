@@ -3,13 +3,9 @@ package com.kangcombi.shop;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -17,6 +13,7 @@ import java.util.Optional;
 public class ItemController {
 
     private final ItemRepository itemRepository;
+    private final ItemService itemService;
 
     @GetMapping("/list")
     String listpage(Model model) {
@@ -32,10 +29,7 @@ public class ItemController {
 
     @PostMapping("/add")
     String addPost(@RequestParam String title, Integer price) {
-        Item item = new Item();
-        item.title = title;
-        item.price = price;
-        itemRepository.save(item);
+        itemService.saveItem(title, price);
         return "redirect:/list";
     }
 
@@ -46,7 +40,7 @@ public class ItemController {
             model.addAttribute("item", result.get());
             return "detail.html";
         } else {
-            return "error.html";
+            return "redirect:/list";
         }
     }
 
