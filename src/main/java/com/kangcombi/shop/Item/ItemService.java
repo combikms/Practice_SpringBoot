@@ -1,4 +1,4 @@
-package com.kangcombi.shop;
+package com.kangcombi.shop.Item;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,4 +15,14 @@ public class ItemService {
         item.price = price;
         itemRepository.save(item);
     }
+
+    public void editItem(Long id, String title, Integer price) {
+        Item item = new Item();
+        item.id = id;
+        item.title = title;
+        item.price = price;
+        itemRepository.save(item);
+    }
+
+
 }

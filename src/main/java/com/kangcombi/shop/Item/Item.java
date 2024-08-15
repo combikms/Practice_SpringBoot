@@ -1,4 +1,4 @@
-package com.kangcombi.shop;
+package com.kangcombi.shop.Item;
 
 import jakarta.persistence.*;
 import lombok.ToString;
@@ -10,5 +10,4 @@ public class Item {
     public Long id;
     public String title;
     public Integer price;
-
 }

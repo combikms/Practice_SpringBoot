@@ -1,4 +1,4 @@
-package com.kangcombi.shop;
+package com.kangcombi.shop.Item;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

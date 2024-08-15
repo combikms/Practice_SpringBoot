@@ -1,4 +1,4 @@
-package com.kangcombi.shop;
+package com.kangcombi.shop.Item;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -27,9 +27,27 @@ public class ItemController {
         return "write.html";
     }
 
+    @GetMapping("/edit/{id}")
+    String editpage(@PathVariable Long id, Model model) {
+        Optional<Item> result = itemRepository.findById(id);
+        if (result.isPresent()) {
+            model.addAttribute("item", result.get());
+            return "edit.html";
+        } else {
+            return "redirect:/list";
+        }
+
+    }
+
     @PostMapping("/add")
     String addPost(@RequestParam String title, Integer price) {
         itemService.saveItem(title, price);
+        return "redirect:/list";
+    }
+
+    @PostMapping("/edit/{id}")
+    String editPost(@PathVariable Long id, @RequestParam String title, Integer price) {
+        itemService.editItem(id, title, price);
         return "redirect:/list";
     }
 

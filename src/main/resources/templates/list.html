@@ -18,6 +18,7 @@
                 <a th:href="@{/detail/{id}(id=${item.id})}" th:text="${item.title}">title</a>
             </h4>
             <p th:text="${item.price}">price</p>
+            <a th:href="@{/edit/{id}(id=${item.id})}">✏️</a>
         </div>
     </div>
 </body>
