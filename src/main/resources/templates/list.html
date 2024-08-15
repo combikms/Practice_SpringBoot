@@ -19,7 +19,15 @@
             </h4>
             <p th:text="${item.price}">price</p>
             <a th:href="@{/edit/{id}(id=${item.id})}">✏️</a>
+            <span th:onclick="fetch('/item?id=[[${item.id}]]', { method: 'DELETE' })
+                .then(r => r.text())
+                .then(() => {
+                    location.reload();
+                })
+            ">🗑</span>
         </div>
     </div>
+
 </body>
+
 </html>

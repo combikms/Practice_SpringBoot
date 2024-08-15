@@ -1,6 +1,7 @@
 package com.kangcombi.shop.Item;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +50,12 @@ public class ItemController {
     String editPost(@PathVariable Long id, @RequestParam String title, Integer price) {
         itemService.editItem(id, title, price);
         return "redirect:/list";
+    }
+
+    @DeleteMapping("/item")
+    ResponseEntity<String> deleteItem(@RequestParam Long id) {
+        itemRepository.deleteById(id);
+        return ResponseEntity.status(200).body("Delete Success.");
     }
 
     @GetMapping("/detail/{id}")
