@@ -2,5 +2,12 @@
     <a class="logo">SpringMall</a>
     <a href="/list">List</a>
     <a href="/write">Write</a>
-    <a href="/register">Sign Up</a>
+    <div sec:authorize="isAuthenticated()">
+        <a href="/my-page" sec:authentication="principal.username">Username</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <div sec:authorize="isAnonymous()">
+        <a href="/register">Sign Up</a>
+        <a href="/login">Sign In</a>
+    </div>
 </div>

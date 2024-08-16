@@ -2,6 +2,7 @@ package com.kangcombi.shop.Member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -9,12 +10,12 @@ import org.springframework.stereotype.Service;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public void saveMember(String username, String password, String displayName) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         Member member = new Member();
         member.username = username;
-        member.password = encoder.encode(password);
+        member.password = passwordEncoder.encode(password);
         member.displayName = displayName;
         memberRepository.save(member);
     }
