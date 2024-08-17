@@ -5,6 +5,7 @@ import lombok.ToString;
 
 @Entity
 @ToString
+@Table(indexes = @Index(columnList = "title", name = "titleIndex"))
 public class Item {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;

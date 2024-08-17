@@ -78,5 +78,12 @@ public class ItemController {
         }
     }
 
+    @PostMapping("/search")
+    String postSearch(@RequestParam String searchText, Model model) {
+        List<Item> result = itemRepository.findAllByTitleContains(searchText);
+        model.addAttribute("items", result);
+        return "list.html";
+    }
+
 
 }
