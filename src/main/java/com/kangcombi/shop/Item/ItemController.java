@@ -1,6 +1,8 @@
 package com.kangcombi.shop.Item;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,13 @@ public class ItemController {
     @GetMapping("/list")
     String listpage(Model model) {
         List<Item> result = itemRepository.findAll();
+        model.addAttribute("items", result);
+        return "list.html";
+    }
+
+    @GetMapping("/list/page/{num}")
+    String getListPage(@PathVariable Integer num, Model model) {
+        Page<Item> result = itemRepository.findPageBy(PageRequest.of(num - 1, 5));
         model.addAttribute("items", result);
         return "list.html";
     }

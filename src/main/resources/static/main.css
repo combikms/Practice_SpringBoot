@@ -1,62 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
 
 .nav {
- display: flex;
- padding: 10px;
- align-items: center;
- font-family : 'Montserrat';
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  font-family: 'Montserrat';
 }
 
 .nav a {
- margin-right: 10px;
- text-decoration : none;
- font-weight : 400;
- letter-spacing : -0.5px;
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: -0.5px;
 }
 
 .nav .logo {
- font-weight : 800;
+  font-weight: 800;
 }
 
-input, button {
- padding : 8px 13px;
- margin-top : 5px;
- border : 1px solid grey;
- border-radius : 4px;
- vertical-align : middle;
+input,
+button {
+  padding: 8px 13px;
+  margin-top: 5px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  vertical-align: middle;
 }
 
 button {
- background : black;
- color : white;
- border : none;
+  background: black;
+  color: white;
+  border: none;
 }
 
 input {
- display : block;
+  display: block;
 }
 
 .card {
- margin : 30px auto;
- display : flex;
+  margin: 30px auto;
+  display: flex;
 }
 
 .card img {
- width : 150px;
- margin-right : 20px;
+  width: 150px;
+  margin-right: 20px;
 }
 
 .detail {
-  text-align : center;
+  text-align: center;
 }
 
-.detail img{
-  max-width : 30%;
-  display : block;
-  margin : auto;
+.detail img {
+  max-width: 30%;
+  display: block;
+  margin: auto;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.page {
+  width: 100%;
+  text-align: center;
+}
+
+.page a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
