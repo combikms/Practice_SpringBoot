@@ -75,3 +75,8 @@ a {
   text-decoration: none;
   border-radius: 5px;
 }
+
+.comment {
+  width: 700px;
+  height: 50px;
+}

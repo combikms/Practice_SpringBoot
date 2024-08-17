@@ -1,23 +1,37 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="/main.css" rel="stylesheet">
 </head>
+
 <body>
-<div th:replace="~{nav.html::navbar}"></div>
+    <div th:replace="~{nav.html::navbar}"></div>
 
-<div class="detail">
-    <h4>상세페이지</h4>
-    <img src="https://placehold.co/300">
-    <h4 th:text="${item.title}">title</h4>
-    <p th:text="${item.price}">price</p>
-</div>
-
+    <div class="detail">
+        <h4>상세페이지</h4>
+        <img src="https://placehold.co/300">
+        <h4 th:text="${item.title}">title</h4>
+        <p th:text="${item.price}">price</p>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <form action="/comment" method="post">
+            <div sec:authentication="principal.username">Username</div>
+            <input name="username" style="display: none;" th:value="${#authentication.name}">
+            <input name="postId" style="display: none;" th:value="${item.id}">
+            <input name="content" class="comment">
+            <button type="submit">전송</button>
+        </form>
+    </div>
+    <div sec:authorize="isAnonymous()">
+        <p>댓글을 쓰려면 로그인하세요.</p>
+    </div>
 
 </body>
+
 </html>
