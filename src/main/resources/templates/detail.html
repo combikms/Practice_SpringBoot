@@ -32,6 +32,13 @@
         <p>댓글을 쓰려면 로그인하세요.</p>
     </div>
 
+    <form action="/order" method="post">
+        <input style="display: none" name="title" th:value="${item.title}">
+        <input style="display: none" name="price" th:value="${item.price}">
+        <input style="display: inline; width: 50px" name="count" placeholder="count">
+        <button>주문하기</button>
+    </form>
+
 </body>
 
 </html>
